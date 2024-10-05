@@ -1,0 +1,4 @@
+# requirements.txt
+
+# This project uses only Python 3 standard libraries.
+# Ensure you're using Python 3.6 or higher.
