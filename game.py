@@ -19,7 +19,7 @@ class MancalaGame:
     def display_board(self):
         ai_pits = ' '.join([f"{i}({self.board[i]})" for i in range(12, 6, -1)])
         player_pits = ' '.join([f"{i}({self.board[i]})" for i in range(0, 6)])
-        
+
         print("\nCurrent Board:")
         print(" " * 30 + "AI Pits")
         print(" " * 15 + ai_pits)
@@ -53,6 +53,10 @@ class MancalaGame:
             else:
                 print("AI is making a move...")
                 move = self.ai.get_best_move(self.board)
+                if move is None:
+                    print("AI has no valid moves. Skipping turn.")
+                    self.current_player = 1
+                    continue
                 print(f"AI selects pit {move}")
                 extra_turn = self.make_move(move, 2)
                 self.display_board()
